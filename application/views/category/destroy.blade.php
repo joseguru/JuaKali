@@ -1,0 +1,1 @@
+This is the /Library/WebServer/Documents/getwork/application/views/category/destroy.blade.php view

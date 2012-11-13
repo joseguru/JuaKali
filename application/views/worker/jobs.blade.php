@@ -1,0 +1,1 @@
+This is the /Library/WebServer/Documents/getwork/application/views/worker/jobs.blade.php view
