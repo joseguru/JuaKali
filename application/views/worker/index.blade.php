@@ -31,8 +31,8 @@
             <tr>
                 <td>{{$worker->name}}</td>
                 <td>{{$worker->phone}}</td>
-                <td>{{$worker->location->location_name}}</td>
-                <td>{{$worker->category->category_name}}</td>
+                <td>{{$worker->location->name}}</td>
+                <td>{{$worker->category->name}}</td>
                 <td>{{HTML::link_to_route('reply_message', 'Send Message', $worker->phone, array('class'=>'btn btn-small'))}}</td>
             </tr>
             @empty
