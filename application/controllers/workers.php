@@ -14,10 +14,10 @@ class Workers_Controller extends Base_Controller {
     {
         return view('worker.new');
         // $worker = new Worker;
-        // $worker->name = "Jane Doe";
-        // $worker->phone = "254722286085";
-        // $worker->location_id = Location::where('location_name', 'LIKE', '%nairobi%')->first()->id;
-        // $worker->category_id = Category::where('category_name', 'LIKE', '%gardener%')->first()->id;
+        // $worker->name = "John Doe";
+        // $worker->phone = "254722286084";
+        // $worker->location_id = Location::where('name', 'LIKE', '%nairobi%')->first()->id;
+        // $worker->category_id = Category::where('name', 'LIKE', '%plumber%')->first()->id;
         // return $worker->save();
     }
 
