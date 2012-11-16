@@ -27,7 +27,6 @@ class Workers_Controller extends Base_Controller {
 
     }
 
-	public function get_show()
 	public function get_show($id)
     {
         $data['worker'] = Worker::find($id);
@@ -53,7 +52,6 @@ class Workers_Controller extends Base_Controller {
         return view('worker.category');
     }
 
-    public function get_search()
     public function get_search($limit=20)
     {
         if (Request::ajax())
