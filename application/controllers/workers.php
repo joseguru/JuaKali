@@ -50,7 +50,12 @@ class Workers_Controller extends Base_Controller {
     }
 
     public function get_search()
+    public function get_search($limit=20)
     {
+        if (Request::ajax())
+        {
+            return Response::json(Worker::take($limit)->get());
+        }
         return view('worker.search');
     }
 
