@@ -28,10 +28,14 @@ class Workers_Controller extends Base_Controller {
     }
 
 	public function get_show()
+	public function get_show($id)
     {
-        $worker = Worker::find(URI::segment(2));
-        dd($worker);
-        return view('worker.show');
+        $data['worker'] = Worker::find($id);
+        if(Request::ajax())
+        {
+            return Response::json($data);
+        }
+        return view('worker.show', $data);
     }
 
 	public function get_edit()
