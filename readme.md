@@ -1,7 +1,7 @@
 ## [Juakali](http://juakali.co.ke) - A Mobile && Web Framework For Blu-Collar Workers and Employers
 
 
-[Official Website & Documentation](http://laravel.com)
+[Official Website & Documentation](http://juakali.co.ke/about)
 
 
 ## API v 0.9
