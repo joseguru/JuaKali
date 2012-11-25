@@ -8,8 +8,12 @@ class Create_Workers_Table {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('phone')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('username');
 			$table->integer('location_id');
-			$table->integer('category_id');
+            $table->integer('category_id');
+			$table->integer('available', 1)->not_null();
 			$table->timestamps();
 	});
 
