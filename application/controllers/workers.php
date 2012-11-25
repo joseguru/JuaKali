@@ -7,34 +7,23 @@ class Workers_Controller extends Base_Controller {
 	public function get_index()
     {
         $data['workers'] = Worker::all();
-        return view('worker.index',$data);
+        return self::view_response('worker.index', $data);
     }
 
     public function get_new()
     {
         return view('worker.new');
-        // $worker = new Worker;
-        // $worker->name = "John Doe";
-        // $worker->phone = "254722286084";
-        // $worker->location_id = Location::where('name', 'LIKE', '%nairobi%')->first()->id;
-        // $worker->category_id = Category::where('name', 'LIKE', '%plumber%')->first()->id;
-        // return $worker->save();
     }
 
     public function post_create()
     {
-        // Simulate Account creation on mobile
-
+        return Worker::create_worker(Input::post());
     }
 
 	public function get_show($id)
     {
         $data['worker'] = Worker::find($id);
-        if(Request::ajax())
-        {
-            return Response::json($data);
-        }
-        return view('worker.show', $data);
+        return self::view_response('worker.show', $data);
     }
 
 	public function get_edit()
@@ -42,8 +31,19 @@ class Workers_Controller extends Base_Controller {
         return view('worker.edit');
     }
 
-	public function get_destroy()
+	public function get_destroy($id)
     {
+        $delete = Worker::delete_worker($id);
+        if(Request::ajax())
+        {
+            return $delete;
+        }
+        else
+        {
+            ($delete) ? Session::flash('status_success', __('workers.deleted')) :
+            Session::flash('status_error', __('workers.not_deleted'));
+            redirect('workers');
+        }
 
     }
 
