@@ -67,6 +67,12 @@ class Base_Controller extends Controller {
                 $this->filter('before', 'auth');
                 break;
         }
+        parent::__construct();
 	}
+
+    public function view_response($view, $data=null)
+    {
+        return (Request::ajax()) ? Response::json($data) : view($view, $data);
+    }
 
 }
