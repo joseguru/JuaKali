@@ -25,6 +25,11 @@ class Worker extends Eloquent
         return $this->has_many('Message');
     }
 
+    public function rating()
+    {
+        return $this->has_many('Rating');
+    }
+
     public static function create_worker($input)
     {
         // Simulate Account creation on mobile
@@ -51,6 +56,38 @@ class Worker extends Eloquent
         Auth::login($worker);
         Session::flash('status_success', __('workers.welcome', array('name'=>$worker->username)));
         return Redirect::to('workers');
+    }
+
+    public static function update_worker($id, $input)
+    {
+        $update = Worker::update($id, $input);
+        if($update)
+            Session::flash('status_success', __('workers.updated'));
+        else
+            Session::flash('status_error', __('workers.not_updated'));
+        return $update;
+    }
+
+    public static function search($params=array())
+    {
+        $limit = (isset($params['limit'])) ? $params['limit'] : 20;
+        $workers = Worker::where(function($query) use($params)
+        {
+            $phone    = (isset($params['phone'])) ? $params['phone'] : null;
+            $name     = (isset($params['name'])) ? $params['name'] : null;
+            $category = (isset($params['category'])) ? $params['category'] : null;
+            $location = (isset($params['location'])) ? $params['location'] : null;
+            if($name)
+                $query->where('name', 'like', "%{$name}%");
+            if($phone)
+                $query->where('name', 'like', "%{$phone}%");
+            if($category)
+                $query->where_category_id($category);
+            if($location)
+                $query->where_location_id($location);
+
+        })->take($limit)->get();
+        return $workers;
     }
 
     public function delete_worker($id)
