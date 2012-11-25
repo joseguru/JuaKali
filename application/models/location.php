@@ -2,6 +2,7 @@
 
 class Location extends Eloquent
 {
+    public static $timestamps = true;
     public function workers()
     {
         return $this->has_many('Worker');

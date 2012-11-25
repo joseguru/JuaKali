@@ -2,6 +2,7 @@
 
 class Message extends Eloquent
 {
+    public static $timestamps = true;
     public $includes = array('user','worker');
 
     public function user()
