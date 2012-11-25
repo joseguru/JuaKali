@@ -19,6 +19,8 @@ return array(
    'update_worker' => 'Update Worker',
    'deleted' => 'Worker Deleted.',
    'added' => 'Worker Added.',
+   'not_added' => 'Worker NOT Added.',
    'updated' => 'Worker Updated.',
+   'not_updated' => 'Worker NOT Updated.',
    'welcome' => 'Welcome, :name',
 );
