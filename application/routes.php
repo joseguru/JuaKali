@@ -107,7 +107,6 @@ Route::get('workers/(:any)/edit', array('as' => 'edit_worker', 'uses' => 'worker
 Route::get('workers/(:any)/category', array('as' => 'category_worker', 'uses' => 'workers@category'));
 Route::get('workers/search', array('as' => 'search_worker', 'uses' => 'workers@search'));
 Route::post('workers', 'workers@create');
-Route::post('workers/(:any)', array('as' => 'search_worker', 'uses' => 'workers@search'));
 Route::put('workers/(:any)', 'workers@update');
 Route::delete('workers/(:any)', 'workers@destroy');
 
