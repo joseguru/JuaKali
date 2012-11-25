@@ -13,13 +13,13 @@ class Jobs_Controller extends Base_Controller {
     {
         $user = Auth::user()->id;
         $data['jobs'] = Job::where_user_id($user)->get();
-        return view('job.index', $data);
+        return self::view_response('job.index', $data);
     }
 
 	public function get_show()
     {
         $data['job'] = Job::find($id);
-        return view('job.show', $data);
+        return self::view_response('job.show', $data);
     }
 
 	public function get_new()
@@ -28,7 +28,7 @@ class Jobs_Controller extends Base_Controller {
         $data['categories'] = Category::category_dropdown();
         $data['attributes'] = array('class'=>'input-xlarge');
 
-        return view('job.new', $data);
+        return self::view_response('job.new', $data);
     }
 
 	public function post_create()
@@ -46,15 +46,4 @@ class Jobs_Controller extends Base_Controller {
     {
         Job::delete($id);
     }
-
-	public function get_workers()
-    {
-
-    }
-
-	public function get_employer()
-    {
-
-    }
-
 }

@@ -8,15 +8,4 @@ class Dashboard_Controller extends Base_Controller {
     {
         return view('dashboard.index');
     }
-
-	public function get_show()
-    {
-
-    }
-
-	public function get_edit()
-    {
-
-    }
-
 }
