@@ -78,7 +78,7 @@
             <div class="row">
               <p>
               @section('footer')
-                Designed by @mogetutu
+                Built by <a href="http://twitter.com/mogetutu">@mogetutu</a>
                 <span class='pull-right'>
                     {{HTML::image('img/logoback.png', 'laravel')}}
                 </span>
@@ -90,7 +90,6 @@
 
         {{ HTML::script('js/jquery-1.8.0.min.js') }}
         {{ HTML::script('js/bootstrap.min.js') }}
-
         {{ HTML::script('js/script.js') }}
     </body>
 </html>

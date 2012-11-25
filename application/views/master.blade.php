@@ -23,7 +23,6 @@
         <![endif]-->
     </head>
     <body>
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -107,7 +106,7 @@
             <div class="row">
               <p>
               @section('footer')
-                Designed by @mogetutu
+                Built by <a href="http://twitter.com/mogetutu">@mogetutu</a>
               @yield_section
               </p>
             </div>
@@ -117,7 +116,6 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.8.0.min.js"><\/script>')</script>
         {{ HTML::script('js/bootstrap.min.js') }}
-
         {{ HTML::script('js/script.js') }}
     </body>
 </html>
