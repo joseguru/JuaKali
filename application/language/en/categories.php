@@ -25,5 +25,11 @@ return array(
     'details'         => 'Details',
     'no_workers'      => 'No Workers',
     'no_jobs'         => 'No Jobs',
+    'added' => 'Category Added.',
+    'not_added' => 'Category NOT Added.',
+    'updated' => 'Category Updated.',
+    'not_updated' => 'Category NOT Updated.',
+    'deleted' => 'Category Deleted.',
+    'not_deleted' => 'Category NOT Deleted.',
 
 );
