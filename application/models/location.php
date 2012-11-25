@@ -21,4 +21,9 @@ class Location extends Eloquent
         }
         return $location;
     }
+
+    public static function delete_location($id)
+    {
+        return Location::delete($id);
+    }
 }
