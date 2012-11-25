@@ -20,8 +20,11 @@ GET : http://juakali.co.ke/workers
 ```
 ## Search Worker
 ```ajax
-POST : http://juakali.co.ke/workers/search
-[name, location, category, rating]
+GET : http://juakali.co.ke/workers/search
+[name, location, category, phone]
+
+Example: http://juakali.co.ke/workers/search?name=john&category=1&location=1
+
 ```
 
 ## Rate a worker - such a user needs to be logged in
@@ -32,7 +35,7 @@ POST : http://juakali.co.ke/rating/
 
 ## Mark worker as available/unavailable
 ```ajax
-POST : http://juakali.co.ke/worker/update/:id
+PUT : http://juakali.co.ke/worker/:id
 [available: 0|1]
 ```
 ## Sign up employers
@@ -49,6 +52,10 @@ POST : http://juakali.co.ke/workers/create
 ```ajax
 POST : http://juakali.co.ke/auth/new
 [username, password]
+
+    username:admin@getwork.com
+    password:password
+
 ```
 ## Reset lost password
 
