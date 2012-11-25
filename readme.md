@@ -1,67 +1,51 @@
-# [Laravel](http://laravel.com) - A PHP Framework For Web Artisans
+# [Juakali](http://juakali.co.ke) - A Mobile && Web Framework For Blu-Collar Workers and Employers
 
-Laravel is a clean and classy framework for PHP web development. Freeing you
-from spaghetti code, Laravel helps you create wonderful applications using
-simple, expressive syntax. Development should be a creative experience that you
-enjoy, not something that is painful. Enjoy the fresh air.
 
 [Official Website & Documentation](http://laravel.com)
 
-## Feature Overview
 
-- Simple routing using Closures or controllers.
-- Views and templating.
-- Driver based session and cache handling.
-- Database abstraction with query builder.
-- Authentication.
-- Migrations.
-- PHPUnit Integration.
-- A lot more.
+# API v 0.9
 
-## A Few Examples
-
-### Hello World:
-
-```php
-<?php
-
-Route::get('/', function()
-{
-	return "Hello World!":
-});
+## Categories
+```curl
+GET : http://juakali.co.ke/categories
+```
+## Locations
+```curl
+GET : http://juakali.co.ke/locations
+```
+## Workers
+```curl
+GET : http://juakali.co.ke/workers
+```
+## Search Worker
+```curl
+POST : http://juakali.co.ke/workers/search
+[name, location, category, rating]
 ```
 
-### Passing Data To Views:
-
-```php
-<?php
-
-Route::get('user/(:num)', function($id)
-{
-	$user = DB::table('users')->find($id);
-
-	return View::make('profile')->with('user', $user);
-});
+## Rate a worker - such a user needs to be logged in
+```curl
+POST : http://juakali.co.ke/rating/
+[worker_id, user_id, rating]
 ```
 
-### Redirecting & Flashing Data To The Session:
-
-```php
-<?php
-
-return Redirect::to('profile')->with('message', 'Welcome Back!');
+## Mark worker as available/unavailable
+```curl
+POST : http://juakali.co.ke/worker/update/:id
+[available: 0|1]
 ```
+## Sign up employers
+POST : http://juakali.co.ke/auth/create
+[email, password]
 
-## Contributing to Laravel
+## Sign up Workers
+POST : http://juakali.co.ke/workers/create
+[username, password, email, location_id, category_id]
 
-Contributions are encouraged and welcome; however, please review the Developer
-Certificate of Origin in the "license.txt" file included in the repository. All
-commits must be signed off using the `-s` switch.
+## login url, please provide me a sample user on the system
+POST : http://juakali.co.ke/auth/new
+[username, password]
 
-```bash
-git commit -s -m "this commit will be signed off automatically!"
-```
+## Reset lost password
 
-## License
-
-Laravel is open-sourced software licensed under the MIT License.
