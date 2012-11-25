@@ -3,7 +3,12 @@
 class Jobs_Controller extends Base_Controller {
 
 	public $restful = true;
+    public $layout = 'account';
 
+    function __construct()
+    {
+        parent::__construct();
+    }
 	public function get_index()
     {
         $user = Auth::user()->id;
@@ -13,7 +18,8 @@ class Jobs_Controller extends Base_Controller {
 
 	public function get_show()
     {
-        return view('job.show');
+        $data['job'] = Job::find($id);
+        return view('job.show', $data);
     }
 
 	public function get_new()
@@ -31,14 +37,14 @@ class Jobs_Controller extends Base_Controller {
         return Job::create_job(Input::all());
     }
 
-	public function get_edit()
+	public function get_edit($id)
     {
-
+        $job = Job::find($id);
     }
 
-	public function get_destroy()
+	public function get_destroy($id)
     {
-
+        Job::delete($id);
     }
 
 	public function get_workers()
