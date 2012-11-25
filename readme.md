@@ -45,7 +45,7 @@ POST : http://juakali.co.ke/auth/create
 POST : http://juakali.co.ke/workers/create
 [username, password, email, location_id, category_id]
 ```
-## login url, please provide me a sample user on the system
+## User Login
 ```ajax
 POST : http://juakali.co.ke/auth/new
 [username, password]
