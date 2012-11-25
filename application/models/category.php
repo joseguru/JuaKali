@@ -26,4 +26,9 @@ class Category extends Eloquent
         }
         return $category;
     }
+
+    public static function delete_category($id)
+    {
+        return Category::delete($id);
+    }
 }
