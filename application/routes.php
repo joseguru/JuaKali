@@ -32,8 +32,7 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/', function(){
     return view('static.home');
 });
 // Route::controller(Controller::detect());
