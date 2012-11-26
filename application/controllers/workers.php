@@ -54,7 +54,6 @@ class Workers_Controller extends Base_Controller
     {
         $params = Input::get();
         $data['workers'] = Worker::search($params);
-        dd($data);
         return self::view_response('worker.search', $data);
     }
 
