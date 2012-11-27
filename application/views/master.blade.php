@@ -7,16 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        {{ HTML::style('css/bootstrap.css') }}
-        <style>
-            body { padding-top: 105px; }
-        </style>
-        {{ HTML::style('css/bootstrap-responsive.css') }}
-        {{ HTML::style('css/font-awesome.css') }}
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
-        {{ HTML::style('css/base.css') }}
-        <!--CSS-->
-        {{ HTML::style('css/red.css') }}
+        {{ Asset::styles() }}
 
         <!--[if lt IE 9]>
             {{ HTML::script('js/html5-3.6-respond-1.1.0.min.js') }}
@@ -113,9 +104,6 @@
           </div>
         </footer>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.8.0.min.js"><\/script>')</script>
-        {{ HTML::script('js/bootstrap.min.js') }}
-        {{ HTML::script('js/script.js') }}
+        {{ Asset::scripts() }}
     </body>
 </html>
