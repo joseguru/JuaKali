@@ -5,7 +5,7 @@
 **	Version: 1.0.0
 */
 
-@import url();
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 
 
 /*****************************************************************************
@@ -13,6 +13,7 @@
 *****************************************************************************/
 
 body {
+    padding-top: 105px;
 	color: #8E959C;
 	font-family: 'Open Sans', sans-serif;
 }
