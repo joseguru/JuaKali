@@ -196,12 +196,7 @@ Route::filter('csrf', function()
 	if (Request::forged()) return Response::error('500');
 });
 
-Route::filter('not_auth', function()
-{
-	if (Auth::guest()) return Redirect::to('auth');
-});
-
 Route::filter('auth', function()
 {
-    if (Auth::guest() == false) return Redirect::to('dashboard');
+	if (Auth::guest()) return Redirect::to('auth');
 });
