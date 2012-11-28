@@ -25,7 +25,7 @@ class Auth_Controller extends Base_Controller {
 
         if ($validation->fails())
         {
-            return Redirect::to('auth')->with_input()->with_errors($validation);
+            return Redirect::back()->with_input()->with_errors($validation);
         }
 
         $input = Input::all();
@@ -55,7 +55,7 @@ class Auth_Controller extends Base_Controller {
 
         if ($validation->fails())
         {
-            return Redirect::to('auth')->with_input()->with_errors($validation);
+            return Redirect::back()->with_input()->with_errors($validation);
         }
 
         if(Auth::attempt($credentials))
