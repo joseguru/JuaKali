@@ -39,5 +39,6 @@ return array(
     'bob'     => array('handles' => 'bob'),
     'stapler' => array( 'auto' => true ),
     'resizer' => array( 'auto' => true ),
-
+    'oneauth' => array('auto' => true),
+    // 'bundocs' => array('auto' => true, 'handles' => 'bundocs'),
 );
