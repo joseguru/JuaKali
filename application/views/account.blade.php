@@ -79,6 +79,6 @@
           </div>
         </footer>
 
-        {{ Asset::script() }}
+        {{ Asset::scripts() }}
     </body>
 </html>

@@ -32,101 +32,54 @@
 |
 */
 
-Route::get('/', function(){
-    return view('static.home');
-});
-// Route::controller(Controller::detect());
-// Static Site Resources
-Route::get('home', array('as' => 'home', 'uses' => 'static@index'));
-Route::get('getting-started', array('as' => 'getting-started', 'uses' => 'static@gettingstarted'));
-Route::get('about', array('as' => 'about', 'uses' => 'static@about'));
-Route::get('blog', array('as' => 'blog', 'uses' => 'static@blog'));
-Route::get('contact', array('as' => 'contact', 'uses' => 'static@contact'));
-
-// user Resource
-Route::get('users', array('as' => 'users', 'uses' => 'users@index'));
-Route::get('users/(:any)', array('as' => 'user', 'uses' => 'users@show'));
-Route::get('users/new', array('as' => 'new_user', 'uses' => 'users@new'));
-Route::get('users/(:any)/edit', array('as' => 'edit_user', 'uses' => 'users@edit'));
-Route::post('users', 'users@create');
-Route::put('users/(:any)', 'users@update');
-Route::post('users/(:any)', 'users@update');
-Route::delete('users/(:any)', 'users@destroy');
-
-// auth Resource
-Route::get('auth', array('as' => 'auth', 'uses' => 'auth@index'));
-Route::post('auth/new', array('as' => 'new_auth', 'uses' => 'auth@new'));
-Route::post('auth', 'auth@create');
-Route::get('auth/session', 'auth@session');
-Route::get('auth/destroy', array('as' => 'logout', 'uses' => 'auth@destroy'));
-
-// dashboard Resource
-Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'dashboard@index'));
-Route::get('dashboard/(:any)', array('as' => 'dashboard', 'uses' => 'dashboard@show'));
-Route::get('dashboard/new', array('as' => 'new_dashboard', 'uses' => 'dashboard@new'));
-Route::get('dashboard/(:any)/edit', array('as' => 'edit_dashboard', 'uses' => 'dashboard@edit'));
-Route::post('dashboard', 'dashboard@create');
-Route::put('dashboard/(:any)', 'dashboard@update');
-Route::delete('dashboard/(:any)', 'dashboard@destroy');
-
-// message Resource
-Route::get('messages', array('as' => 'messages', 'uses' => 'messages@index'));
-Route::get('messages/(:any)', array('as' => 'message', 'uses' => 'messages@show'));
-Route::get('messages/new', array('as' => 'new_message', 'uses' => 'messages@new'));
-Route::get('messages/(:any)/edit', array('as' => 'edit_message', 'uses' => 'messages@edit'));
-Route::get('messages/(:any)/category', array('as' => 'category_message', 'uses' => 'messages@category'));
-Route::get('messages/(:any)/reply', array('as' => 'reply_message', 'uses' => 'messages@reply'));
-Route::get('messages/(:any)/conversation', array('as' => 'conversation_message', 'uses' => 'messages@conversation'));
-Route::post('messages', 'messages@create');
-Route::put('messages/(:any)', 'messages@update');
-Route::delete('messages/(:any)', 'messages@destroy');
-
-// setting Resource
-Route::get('settings', array('as' => 'settings', 'uses' => 'settings@index'));
-Route::get('settings/(:any)', array('as' => 'setting', 'uses' => 'settings@show'));
-Route::get('settings/new', array('as' => 'new_setting', 'uses' => 'settings@new'));
-Route::get('settings/(:any)/edit', array('as' => 'edit_setting', 'uses' => 'settings@edit'));
-Route::post('settings', 'settings@create');
-Route::put('settings/(:any)', 'settings@update');
-Route::delete('settings/(:any)', 'settings@destroy');
-
-// categories Resource
-Route::get('categories', array('as' => 'categories', 'uses' => 'categories@index'));
-Route::get('categories/(:any)', array('as' => 'category', 'uses' => 'categories@show'));
-Route::get('categories/new', array('as' => 'new_category', 'uses' => 'categories@new'));
-Route::get('categories/(:any)/edit', array('as' => 'edit_category', 'uses' => 'categories@edit'));
-Route::post('categories', 'categories@create');
-Route::put('categories/(:any)', 'categories@update');
-Route::delete('categories/(:any)', 'categories@destroy');
-
-// workers Resource
-Route::get('workers', array('as' => 'workers', 'uses' => 'workers@index'));
-Route::get('workers/(:any)', array('as' => 'worker', 'uses' => 'workers@show'));
-Route::get('workers/new', array('as' => 'new_worker', 'uses' => 'workers@new'));
-Route::get('workers/(:any)/edit', array('as' => 'edit_worker', 'uses' => 'workers@edit'));
-Route::get('workers/(:any)/category', array('as' => 'category_worker', 'uses' => 'workers@category'));
-Route::get('workers/search', array('as' => 'search_worker', 'uses' => 'workers@search'));
-Route::post('workers', 'workers@create');
-Route::put('workers/(:any)', 'workers@update');
-Route::delete('workers/(:any)', 'workers@destroy');
-
-// job Resource
-Route::get('jobs', array('as' => 'jobs', 'uses' => 'jobs@index'));
-Route::get('jobs/(:any)', array('as' => 'job', 'uses' => 'jobs@show'));
-Route::get('jobs/new', array('as' => 'new_job', 'uses' => 'jobs@new'));
-Route::get('jobs/(:any)/edit', array('as' => 'edit_job', 'uses' => 'jobs@edit'));
-Route::post('jobs', 'jobs@create');
-Route::put('jobs/(:any)', 'jobs@update');
-Route::delete('jobs/(:any)', 'jobs@destroy');
+// API category Resource
+Route::get('api/v1/categories', array('as' => 'category', 'uses' => 'api.v1.categories@index'));
+Route::get('api/v1/categories/(:any)', array('as' => 'category', 'uses' => 'api.v1.categories@show'));
+Route::get('api/v1/categories/new', array('as' => 'new_category', 'uses' => 'api.v1.categories@new'));
+Route::get('api/v1/categories/(:any)/edit', array('as' => 'edit_category', 'uses' => 'api.v1.categories@edit'));
+Route::post('api/v1/categories', 'api.v1.categories@store');
+Route::put('api/v1/categories/(:any)', 'api.v1.categories@update');
+Route::delete('api/v1/categories/(:any)', 'api.v1.categories@destroy');
 
 // location Resource
-Route::get('locations', array('as' => 'locations', 'uses' => 'locations@index'));
-Route::get('locations/(:any)', array('as' => 'location', 'uses' => 'locations@show'));
-Route::get('locations/new', array('as' => 'new_location', 'uses' => 'locations@new'));
-Route::get('locations/(:any)/edit', array('as' => 'edit_location', 'uses' => 'locations@edit'));
-Route::post('locations', 'locations@create');
-Route::put('locations/(:any)', 'locations@update');
-Route::delete('locations/(:any)', 'locations@destroy');
+Route::get('api/v1/locations', array('as' => 'locations', 'uses' => 'api.v1.locations@index'));
+Route::get('api/v1/locations/(:any)', array('as' => 'location', 'uses' => 'api.v1.locations@show'));
+Route::get('api/v1/locations/new', array('as' => 'new_location', 'uses' => 'api.v1.locations@new'));
+Route::get('api/v1/locations/(:any)/edit', array('as' => 'edit_location', 'uses' => 'api.v1.locations@edit'));
+Route::post('api/v1/locations', 'api.v1.locations@store');
+Route::put('api/v1/locations/(:any)', 'api.v1.locations@update');
+Route::delete('api/v1/locations/(:any)', 'api.v1.locations@destroy');
+
+// account Resource
+Route::get('api/v1/account/(:any)', array('as' => 'account', 'uses' => 'api.v1.account@show'));
+Route::get('api/v1/account/(:any)/edit', array('as' => 'edit_account', 'uses' => 'api.v1.account@edit'));
+Route::post('api/v1/account', 'api.v1.account@store');
+Route::post('api/v1/account/auth', 'api.v1.account@auth');
+Route::post('api/v1/account/(:any)', 'api.v1.account@update');
+Route::post('api/v1/account/availability/(:any)', 'api.v1.account@availability');
+Route::delete('api/v1/account/(:any)', 'api.v1.account@destroy');
+
+// worker Resource
+Route::get('api/v1/workers', array('as' => 'workers', 'uses' => 'api.v1.workers@index'));
+Route::get('api/v1/workers/(:any)', array('as' => 'worker', 'uses' => 'api.v1.workers@show'));
+Route::get('api/v1/workers/create', array('as' => 'new_worker', 'uses' => 'api.v1.workers@create'));
+Route::get('api/v1/workers/rating', array('as' => 'worker_rating', 'uses' => 'api.v1.workers@rating'));
+Route::get('api/v1/workers/(:any)/edit', array('as' => 'edit_worker', 'uses' => 'api.v1.workers@edit'));
+Route::post('api/v1/workers', 'api.v1.workers@store');
+Route::post('api/v1/workers/search', 'api.v1.workers@search');
+Route::post('api/v1/workers/rating', 'api.v1.workers@rating');
+Route::put('api/v1/workers/(:any)', 'api.v1.workers@update');
+Route::delete('api/v1/workers/(:any)', 'api.v1.workers@destroy');
+
+// user Resource
+Route::get('api/v1/users', array('as' => 'users', 'uses' => 'api.v1.users@index'));
+Route::get('api/v1/users/(:any)', array('as' => 'user', 'uses' => 'api.v1.users@show'));
+Route::get('api/v1/users/create', array('as' => 'new_user', 'uses' => 'api.v1.users@create'));
+Route::get('api/v1/users/(:any)/edit', array('as' => 'edit_user', 'uses' => 'api.v1.users@edit'));
+Route::post('api/v1/users', 'api.v1.users@store');
+Route::post('api/v1/users/(:any)', 'api.v1.users@update');
+Route::delete('api/v1/users/(:any)', 'api.v1.users@destroy');
+
 
 /*
 |--------------------------------------------------------------------------

@@ -23,7 +23,7 @@
 
 $environments = array(
 
-    'local' => array('http://localhost*', '*.dev'),
+    'local' => array('http://localhost*', '*.dev','http://local*'),
 	'production' => array('http://www.juakali.co.ke*'),
 
 );
