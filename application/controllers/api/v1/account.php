@@ -21,6 +21,6 @@ class Api_V1_Account_Controller extends Base_Controller
 
     public function post_update($id)
     {
-        return User::updateAccount($id)
+        return User::updateAccount($id);
     }
 }
