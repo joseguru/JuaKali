@@ -81,6 +81,14 @@ Route::post('api/v1/users/(:any)', 'api.v1.users@update');
 Route::delete('api/v1/users/(:any)', 'api.v1.users@destroy');
 
 
+Route::get('api/v1/jobs', array('as' => 'jobs', 'uses' => 'api.v1.jobs@index'));
+Route::get('api/v1/jobs/(:any)', array('as' => 'job', 'uses' => 'api.v1.jobs@show'));
+Route::post('api/v1/jobs', 'api.v1.jobs@store');
+Route::post('api/v1/jobs/(:any)', array('as' => 'jobs', 'users' => 'api.v1.jobs@update'));
+Route::get('api/v1/jobs/delete/(:any)/(:any)', 'api.v1.jobs@destroy');
+Route::post('api/v1/jobs/search', 'api.v1.jobs@search');
+
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
