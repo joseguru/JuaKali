@@ -13,7 +13,7 @@ class Create_Workers_Table {
             $table->string('username');
 			$table->integer('location_id');
             $table->integer('category_id');
-			$table->integer('available', 1)->not_null();
+			$table->integer('available')->not_null();
 			$table->timestamps();
 	});
 
