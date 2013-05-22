@@ -3,22 +3,44 @@
 class Job extends Eloquent
 {
     public static $timestamps = true;
+    public $includes = array('user','location','category');
 
+    /**
+     * Worker Relation
+     *
+     * @author mogetutu <imogetutu@gmail.com>
+     * @return object
+     */
     public function workers()
     {
         return $this->has_many_and_belongs_to('Worker');
     }
-
+    /**
+     * User Relation
+     *
+     * @author mogetutu <imogetutu@gmail.com>
+     * @return object
+     */
     public function user()
     {
         return $this->belongs_to('User');
     }
-
+    /**
+     * Location Relation
+     *
+     * @author mogetutu <imogetutu@gmail.com>
+     * @return object
+     */
     public function location()
     {
         return $this->belongs_to('Location');
     }
-
+    /**
+     * Category Relation
+     *
+     * @author mogetutu <imogetutu@gmail.com>
+     * @return object
+     */
     public function category()
     {
         return $this->belongs_to('Category');
@@ -142,27 +164,27 @@ class Job extends Eloquent
 
         if($title and $location_id and $category_id)
         {
-            $jobs = static::with(array('location','category','user'))->where('title', 'LIKE', '%'.$title.'%')->where_location_id_and_category_id($title, $location_id, $category_id)->get();
+            $jobs = static::where('title', 'LIKE', '%'.$title.'%')->where_location_id_and_category_id($title, $location_id, $category_id)->get();
         }
 
         if($location_id and $category_id)
         {
-            $jobs = static::with(array('location','category','user'))->where_location_id_and_category_id($category_id, $location_id)->get();
+            $jobs = static::where_location_id_and_category_id($category_id, $location_id)->get();
         }
 
         if($location_id or $category_id)
         {
-            $jobs = static::with(array('location','category','user'))->where_location_id_or_category_id($category_id, $location_id)->get();
+            $jobs = static::where_location_id_or_category_id($category_id, $location_id)->get();
         }
 
         if($location_id or $category_id or $title)
         {
-            $jobs = static::with(array('location','category','user'))->where('title', 'LIKE', '%'.$title.'%')->where_location_id_or_category_id($location_id, $category_id)->get();
+            $jobs = static::where('title', 'LIKE', '%'.$title.'%')->where_location_id_or_category_id($location_id, $category_id)->get();
         }
 
         if($title)
         {
-            $jobs = static::with(array('location','category','user'))->where('title', 'LIKE', '%'.$title.'%')->get();
+            $jobs = static::where('title', 'LIKE', '%'.$title.'%')->get();
         }
 
         return Response::eloquent($jobs);
