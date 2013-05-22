@@ -8,12 +8,15 @@ class Create_Categories_Table {
 			$table->increments('id');
 			$table->string('name');
 			$table->integer('user_id');
-			$table->string('description');
+			$table->string('description')->nullable();
 			$table->timestamps();
         });
 
         DB::table('categories')->insert(array(
             'name' => 'Plumber',
+            'user_id' => 1,
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
         ));
 
     }

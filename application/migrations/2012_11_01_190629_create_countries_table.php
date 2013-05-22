@@ -11,6 +11,8 @@ class Create_Countries_Table {
         });
         DB::table('countries')->insert(array(
             'name' => 'Kenya',
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
         ));
 
     }

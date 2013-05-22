@@ -13,7 +13,9 @@ class Create_Locations_Table {
 
         DB::table('locations')->insert(array(
             'name' => 'Nairobi',
-            'country_id' => 1
+            'country_id' => 1,
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
         ));
 
     }

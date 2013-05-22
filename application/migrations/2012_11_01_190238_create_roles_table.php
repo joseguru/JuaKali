@@ -11,7 +11,9 @@ class Create_Roles_Table {
         });
 
         DB::table('roles')->insert(array(
-        'name' => 'Administrator',
+            'name' => 'Administrator',
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
         ));
 
     }

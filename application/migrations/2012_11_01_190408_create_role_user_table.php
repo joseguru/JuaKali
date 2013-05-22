@@ -13,7 +13,9 @@ class Create_Role_User_Table {
 
         DB::table('role_user')->insert(array(
             'user_id' => 1,
-            'role_id' => 1
+            'role_id' => 1,
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
         ));
 
     }
